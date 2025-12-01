@@ -1,0 +1,10 @@
+# Ignore the secret API key
+.env
+
+# Ignore the downloaded videos/images so your repo doesn't get huge
+media/
+downloads/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
