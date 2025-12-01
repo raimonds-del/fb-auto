@@ -1,0 +1,21 @@
+name: Deploy to Apify
+
+on:
+  push:
+    branches:
+      - main  # Trigger only when you push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Push to Apify
+        uses: apify/push-actor-action@v3
+        with:
+          # Get this token from Apify Console -> Settings -> Integrations
+          token: ${{ secrets.APIFY_TOKEN }}
+          # The actorId is optional if you have actor.json, 
+          # but it's safer to specify it to ensure it updates the right one.
+          actor-id: your-username/competitor-ad-scraper
